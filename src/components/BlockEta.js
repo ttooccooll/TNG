@@ -12,7 +12,7 @@ function BitcoinHashWin() {
         .get('https://blockchain.info/q/eta')
         .then((res) => {
           const hashWin = parseFloat(res.data);
-          const roundedHashWin = hashWin.toFixed(10);
+          const roundedHashWin = hashWin.toFixed(4);
           setHashWin(roundedHashWin);
         })
         .catch((err) => {
@@ -22,7 +22,7 @@ function BitcoinHashWin() {
 
     getHashWin();
 
-    const intervalId = setInterval(getHashWin, 15000);
+    const intervalId = setInterval(getHashWin, 12000);
 
     return () => clearInterval(intervalId);
   }, []);
